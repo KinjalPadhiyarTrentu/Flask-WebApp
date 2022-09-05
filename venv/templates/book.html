@@ -1,1 +1,32 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Books Page</title>
+</head>
+<body>
+    <h1>Welcome {{session.get("user")}} to the Books Page</h1>
+    <table border="1">
+        <tr>
+            <th>Book Id</th>
+            <th>Book Name</th>
+            <th>Author</th>
+            <th>Status</th>
+            <th>Username</th>
+            <th>Add to Cart</th>
+        </tr>
+        {% for each in data %}
+            <tr>
+                <td>{{each[0]}}</td>
+                <td>{{each[1]}}</td>
+                <td>{{each[2]}}</td>
+                <td>{{each[3]}}</td>
+                <td>{{each[4]}}</td>
+                {% if each[3] != "NA" %}
+                <td><a href="/addToCart/{{each[0]}}/{{session.get('user')}}">Add to Cart</a></td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

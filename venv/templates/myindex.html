@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check Flash</title>
+</head>
+<body>
+<center>
+    <form action="/demoFlash" method="post">
+        <input type="text" name="uname"><br><br>
+        <input type="password" name="upass"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            {{message}}
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+</center>
+</body>
+</html>
